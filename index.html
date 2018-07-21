@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=3, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Growthhouse Pomodoro Timer</title>
+    <style>
+        .display {
+            /*position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto auto;
+
+            width: 400px;
+            height: 200px;
+
+            border: 1px solid #ccc;
+            border-radius: 5px;
+
+            background-color: whitesmoke;
+            box-shadow: #aaa 0px 0px 5px;
+
+            text-align: center;
+            padding: 2rem;*/
+
+
+        }
+        body {
+            text-align: center;
+            font-size: 5rem;
+            padding-top: 30px;
+        }
+
+        h1 {
+            font-size: 12rem;
+        }
+
+        h3 {
+            font-size: 5rem;
+        }
+
+
+
+        #settings { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="display">
+    <h3 id="title"></h3>
+    <h1 id="countdown"></h1>
+    <span class="helper">until </span><span id="endtime"></span>
+</div>
+
+<div id="settings">
+    Starttime: <br><input type="time" id="starttime"><br>
+    Blocks: <br><textarea id="blocks">50 Pomo
+10 Break</textarea><br>
+    <button id="startButton">start</button>
+</div>
+
+</body>
+<script src="gh-timer.js"></script>
+<script>
+
+    var timer = GhTimer();
+
+    /*timer.add('Accountability Checkup',15)
+    	.add('Pomo 1',50)
+    	.add('Break',10);
+
+    timer.startsAt(7,45,0);
+
+    timer.display({
+            title: '#title',
+            countdown: '#countdown',
+            endtime: '#endtime',
+            helper: '.helper'
+        });*/
+
+     timer.add('Accountability Checkup',15)
+     		.add('Pomo 1',50)
+     		.add('Break',10)
+     		.add('Pomo 2',50)
+            .add('Daily Check-In',15)
+     		.add('Lunch',55)
+     		.add('Pomo 3',50)
+     		.add('Break',10)
+            .add('Pomo 4',50)
+            .add('Break',10)
+            .add('Hotseat',25)
+            .add('Break',5)
+            .add('Pomo 5',50)
+            .add('Break',10)
+            .add('Pomo 6',50)
+            .startsAt(9,45,0).display({
+            title: '#title',
+            countdown: '#countdown',
+            endtime: '#endtime',
+            helper: '.helper'
+            //nextTitle: '#nexttitle'
+        });
+     /*
+    document.querySelector('#startButton').addEventListener('click', function() {
+
+        // stop previous timer
+        if(timer) timer.stop();
+        timer = GhTimer();
+
+        // get lines of textarea
+        var blocksInput = document.querySelector('#blocks').value.split('\n');
+
+        for(var i in blocksInput) {
+
+            // match "10 pomo number one" etc.
+            var regexMatches = /(\d+)\s(.*)/.exec(blocksInput[i].trim());
+            timer = timer.add(regexMatches[2],regexMatches[1]);
+        }
+
+        var starttime = document.querySelector('#starttime').value.split(':');
+        timer = timer.startsAt(parseInt(starttime[0]), parseInt(starttime[1]),0);
+
+        timer.display({
+            title: '#title',
+            countdown: '#countdown',
+            endtime: '#endtime',
+            helper: '.helper'
+        });
+
+        /*
+        var timer = GhTimer().add('Pomo',10).add('Break',2).startsAt(14,5,0).display({
+            title: '#title',
+            countdown: '#countdown',
+            endtime: '#endtime',
+            helper: '.helper'
+            //nextTitle: '#nexttitle'
+        });*
+    });*/
+
+
+
+</script>
+</body>
+</html>
